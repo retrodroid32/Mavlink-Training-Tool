@@ -21,7 +21,7 @@
 | Advanced | 09 · CRC, Versions & Signing | Tamper demonstration and authentication vs encryption |
 | Expert | 10 · Routing, Loss & Troubleshooting | Evidence-based diagnosis challenges |
 
-Each module has **3 concept lessons, a browser-only interactive lab and a 5-question quiz**. A fresh quiz selects five random questions from its **50-item question pool**, without repeating the same topic concept within a quiz. Questions are shuffled and multiple-choice answers are shuffled on every attempt. The initial pool contains 20 distinct concepts per module, with contextual variations used to build the 50 candidates. A score of **4/5 or better** marks the module complete. Repeat attempts are allowed.
+Each module has **3 concept lessons, a browser-only interactive lab and a 5-question quiz**. A fresh quiz selects five random questions from its **50-item question pool**, without repeating the same topic concept within a quiz. Questions are shuffled and multiple-choice answers are shuffled on every attempt. The initial pool contains 20 foundational and applied stems, 20 contextual variants, and 10 two-part application questions per module to build the 50 candidates. A score of **4/5 or better** marks the module complete. Repeat attempts are allowed.
 
 The static application persists completion and best scores in **browser localStorage**. It does not require an account, backend service, API key or live aircraft.
 
@@ -59,6 +59,7 @@ node --check app.js
 node --check curriculum.js
 node --check quiz-bank.js
 node tests/smoke.mjs
+node tests/runtime.mjs
 ```
 
 ### Structure
@@ -72,6 +73,7 @@ quiz-bank.js                500 question instances (50 per module)
 workbook.html               printable workbook and self-check key
 assets/course-banner.svg    original repository illustration
 tests/smoke.mjs             lesson and question-bank assertions
+tests/runtime.mjs           quiz-flow, lab-render and independent packet CRC tests
 .github/workflows/pages.yml tests first, then deploys to Pages
 ```
 
@@ -89,6 +91,6 @@ MAVLink Academy is an **independent educational project**, not an official MAVLi
 
 ## Future enhancements
 
-Recommended next iterations: distinct authored scenario questions for all 50 candidates per module, accessibility and keyboard testing in multiple browsers, real capture import with parser validation, instructor answer exports, learner profiles, interactive ACK timing controls and automated UI screenshot regression tests.
+Recommended next iterations: further independently authored scenario questions across each 50-candidate pool, accessibility and keyboard testing in multiple browsers, real capture import with parser validation, instructor answer exports, learner profiles, interactive ACK timing controls and automated UI screenshot regression tests.
 
 Contributions, corrections and module feedback are welcome through GitHub Issues.
