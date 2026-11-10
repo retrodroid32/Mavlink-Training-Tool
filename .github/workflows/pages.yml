@@ -25,6 +25,8 @@ jobs:
           node --check app.js
       - name: Validate lesson and quiz content
         run: node tests/smoke.mjs
+      - name: Test simulated interactive labs and packet CRCs
+        run: node tests/runtime.mjs
   deploy:
     needs: verify
     runs-on: ubuntu-latest
