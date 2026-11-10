@@ -255,8 +255,7 @@
  const prefixes = [
   function(q){return q;},
   function(q){return "Quick check: " + q;},
-  function(q){return "During a protocol lab: " + q;},
-  function(q){return "Review a captured MAVLink exchange. " + q;}
+  function(q){return "During a protocol lab: " + q;}
  ];
  const bank={};
  Object.keys(D).forEach(function(key){
@@ -265,6 +264,20 @@
    prefixes.forEach(function(wrap,v){arr.push({id:key+"-c"+i+"-"+v,concept:"core-"+i,q:wrap(row[0]),answer:row[1],options:[row[1],row[2],row[3],row[4]],why:row[5]||("The correct interpretation is: "+row[1]+".")});});
   });
   D[key].challenge.forEach(function(row,i){arr.push({id:key+"-a"+i,concept:"applied-"+i,q:row[0],answer:row[1],options:[row[1],row[2],row[3],row[4]],why:"Correct: "+row[1]+". Apply the module's definitions to this scenario."});});
+  D[key].core.forEach(function(first,i){
+    const second=D[key].challenge[i];
+    const answer="1: "+first[1]+" | 2: "+second[1];
+    const options=[
+      answer,
+      "1: "+first[2]+" | 2: "+second[1],
+      "1: "+first[1]+" | 2: "+second[2],
+      "1: "+first[3]+" | 2: "+second[3]
+    ];
+    arr.push({id:key+"-pair"+i,concept:"pair-"+i,
+      q:"Two-part application: (1) "+first[0]+" (2) "+second[0]+" Choose the pair of correct answers.",
+      answer:answer,options:options,
+      why:"Both answers must be correct. First: "+first[1]+". Second: "+second[1]+"."});
+  });
   if(arr.length!==50)throw Error("Question pool must be 50: "+key+" has "+arr.length);
   bank[key]=arr;
  });
