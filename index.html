@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1020">
+  <meta name="description" content="MAVLink Academy: visual, interactive training from first packet to advanced debugging.">
+  <title>MAVLink Academy · Interactive Protocol Training</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="MAVLink Academy home">
+        <span class="brand-mark"><span class="signal-dot"></span><span class="signal-ring"></span></span>
+        <span><strong>MAVLINK</strong><small>ACADEMY / LEARN</small></span>
+      </a>
+      <div class="sidebar-overline">LEARNING PATH</div>
+      <div class="sidebar-modules" id="moduleNav" aria-label="Training modules"></div>
+      <div class="sidebar-bottom">
+        <div class="sidebar-stat"><span>COURSE PROGRESS</span><b id="sidebarPercent">0%</b></div>
+        <div class="progress-track"><div id="sidebarProgress" class="progress-fill"></div></div>
+        <a class="sidebar-resource" href="./workbook.html" target="_blank" rel="noopener"><span class="resource-icon">▤</span><span>Student workbook<small>Guided exercises & notes</small></span><span>↗</span></a>
+        <div class="sidebar-branding">INDEPENDENT LEARNING PROJECT<br>Based on official MAVLink specifications</div>
+      </div>
+    </aside>
+    <div class="sidebar-scrim" id="sidebarScrim"></div>
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left"><button id="menuToggle" class="icon-button mobile-menu" aria-label="Open menu">☰</button><span class="breadcrumb-root">ACADEMY</span><span class="breadcrumb-slash">/</span><span id="breadcrumb" class="breadcrumb-current">Overview</span></div>
+        <div class="topbar-right"><span class="status-indicator"><i></i> LOCAL LAB MODE</span><span class="topbar-separator"></span><button id="resetButton" class="text-button" title="Clear saved learning progress">↺ Reset progress</button><span class="avatar">ML</span></div>
+      </header>
+      <main id="appMain" tabindex="-1"></main>
+      <footer class="site-footer"><span>MAVLINK ACADEMY <span class="footer-dot">·</span> v1.0</span><span>Learn the protocol. Understand the bytes. <a href="https://mavlink.io/" target="_blank" rel="noopener">Official MAVLink docs ↗</a></span></footer>
+    </div>
+  </div>
+  <script src="./curriculum.js"></script>
+  <script src="./quiz-bank.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
